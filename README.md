@@ -5,8 +5,7 @@
 1. Clone this repository
 1. `cd` into the directory it creates
 1. Make a `database.json` file in the `api` directory
-1. Run `npm install` and wait for all dependencies to be installed
-1. Run `npm start` to verify that installation was successful.
+1. Delete the `.ignore` file in the `api` directory
 
 ## Instructions
 
@@ -15,16 +14,16 @@ Nutshell is a new product offering that you have been tasked with building. It's
 You will be utilizing all of the skills and concepts that you've learned up to this point in the course.
 
 1. Functions
-1. Databases/API
+1. Databases
 1. Github
 1. Objects
 1. CSS/Flexbox
 1. Array methods
-1. Handling user events
-1. Factory functions
+1. Components
+1. Handling user and custom events
 1. Implementing CRUD operations
-1. Modular code with Webpack
 1. Relational data
+1. ERDs
 
 To start you off, here's an example of what the resources in your API should look like once it's populated with some data from your application.
 
@@ -66,7 +65,6 @@ To start you off, here's an example of what the resources in your API should loo
 
 ## Professional Requirements
 
-1. All teammates must be using Webpack to compile their code.
 1. Each module should have a comment at the top with the following info: author(s) and purpose of module
 1. The README for your project should include instructions on how another person can download and run the application
 
