@@ -7,6 +7,8 @@
 1. Make a `database.json` file in the `api` directory
 1. Delete the `.ignore` file in the `api` directory
 
+> **Note:** Your `database.json` file is already in the `.gitignore` file for this project, so it will never be added to the repo or pushed to Github.
+
 ## Instructions
 
 Nutshell is a new product offering that you have been tasked with building. It's a dashboard for people to use to organize their daily tasks, events, news article, friends, and chat messages.
@@ -30,7 +32,7 @@ To start you off, here's an example of what the resources in your API should loo
 ### Users
 
 ```json
-{ "id": 1, "username": "Steve", "email": "me@me.com" }
+{ "id": 1, "username": "Steve", "email": "me@me.com", "password": "xxxxxxxxxxxxxxxxxxxxx" }
 ```
 
 ### Messages
@@ -54,13 +56,13 @@ To start you off, here's an example of what the resources in your API should loo
 ### Friends
 
 ```json
-{ "id": 1, "userId": 1, "otherFriendId": 3 }
+{ "id": 1, "userId": 1, "following": 3 }
 ```
 
 ### Tasks
 
 ```json
-{ "id": 1, "userId": 3, "task": "Take out garbage" }
+{ "id": 1, "userId": 3, "task": "Take out garbage", "complete": false }
 ```
 
 ## Professional Requirements
@@ -70,9 +72,9 @@ To start you off, here's an example of what the resources in your API should loo
 
 ## How to Handle Authentication
 
-Be very clear that what you will be implemting is not real authentication. It is a simulation of it using very simplistic tools.
+Be very clear that what you will be implemeting is not real authentication. It is a simulation of it using very simplistic tools.
 
-You will be using session storage to keep track of which user has logged into Nutshell. When the user fills out the registration form, you will POST their username and password to the `users` collection in your API. You will then immediately take the `id` of the object in the response and save it to session storage.
+You will be using session storage to keep track of which user has logged into Nutshell. When the user fills out the registration form, you will POST their email, username and password to the `users` collection in your API. You will then immediately take the `id` of the object in the response and save it to [session storage](https://javascript.info/localstorage#sessionstorage).
 
 ```js
 sessionStorage.setItem("activeUser", user.id)
@@ -83,9 +85,3 @@ If you want to add a Logout feature, all you need to do it remove the session st
 ```js
 sessionStorage.removeItem("activeUser")
 ```
-
-## Visual Feature List
-
-To help you along, here is a visualization of a few features, as envisioned by one of your predecessors.
-
-![nutshell features](./Nutshell.png)
