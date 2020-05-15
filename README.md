@@ -22,7 +22,7 @@ You will be utilizing all of the skills and concepts that you've learned up to t
 1. CSS/Flexbox
 1. Array methods
 1. Components
-1. Handling user and custom events
+1. Handling user events
 1. Implementing CRUD operations
 1. Relational data
 1. ERDs
