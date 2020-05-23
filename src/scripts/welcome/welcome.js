@@ -31,15 +31,17 @@ const empty_fields = () => {
     if (
         dom_vals.username == "" ||
         dom_vals.email == "" ||
-        dom_vals.password == ""
-    ) { return false }
-    else { return true}
+        dom_vals.password == "" ||
+        dom_vals.password_conf == ""
+    ) { 
+        console.log(dom_vals)
+        return true 
+    }
+    else { return false }
 }
 
 const matching_passwords = () => {
-    if (
-        dom_vals.password == password_conf
-    ) { return true}
+    if ( dom_vals.password == dom_vals.password_conf ) { return true}
     else { return false}
 }
 
