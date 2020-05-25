@@ -9,9 +9,22 @@ const chat_api = {
         }).then(response => response.json())
     },
     get_messages() {
-        return fetch(`http://localhost:8088/messages`) 
+        return fetch(`http://localhost:8088/messages?_expand=user`) 
             .then(response => response.json())
-    }
+    },
+    get_message(id) {
+        return fetch(`http://localhost:8088/messages?_expand=user/${id}`) 
+            .then(response => response.json())
+    },
+    edit_message(id, obj) {
+        return fetch(`http://localhost:8088/messages/${id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(obj)
+        }).then(response => response.json());
+      }
 }
 
 export default chat_api

@@ -1,8 +1,9 @@
 import chat from "./chat/chat.js"
 import welcome_components from  "./welcome/welcome-components.js"
+import active_user from "./main.js"
 
 function show_all() {
-    remove_element("welcome_container")
+    // remove_element("welcome_container")
     render_chat()
 }
 
@@ -27,7 +28,10 @@ function render_chat() {
         messages.sort((a, b) => b.id - a.id);
         messages.forEach(message => {
                 render_element(chat.chat_components.chat_message(message), "chat_field", true)
-        });
+                if(active_user == message.userId) {
+                    document.getElementById(`message_container--${message.id}`).innerHTML += chat.chat_components.edit_btn(message.id)
+                }
+        })
     })
 }
 function render_message(message_object) {
@@ -35,8 +39,13 @@ function render_message(message_object) {
     document.getElementById("chat_input").value = ""
 }
 
-render_element(welcome_components.welcome_container(), "site_wrapper", false)
+function prepopulate(id) {
+    document.getElementById("chat_id").value = id
+    document.getElementById("chat_input").value = document.getElementById(`message--${id}`).innerHTML
+}
+
+// render_element(welcome_components.welcome_container(), "site_wrapper", false)
 
 show_all()
 
-export default { render_element, remove_element, render_message }
+export default { render_element, remove_element, render_message, prepopulate, render_chat, show_all }

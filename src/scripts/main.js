@@ -25,27 +25,34 @@ site_wrapper.addEventListener("click", () => {
             user_api.save_user(user_object).then( user => {
                 sessionStorage.setItem("active_user", user.id)
                 active_user = parseInt(sessionStorage.getItem("active_user"))
-                dom.remove_element("welcome_container")
+                dom.show_all()
             })
         }
         
     }
 })
 
-site_wrapper.addEventListener("keypress", () => {
+site_wrapper.addEventListener("keyup", () => {
     if (event.target.id == "chat_input") {
-        if (event.keyCode == 13) {
-            let chat_object = chat.create_message(active_user)
-            chat.chat_api.save_message(chat_object).then( message => {
-                dom.render_message(message)
-            })
-        }
-    } else if (event.target.id.startsWith("message--")) {
-        if (event.keyCode == 13) {
-            event.preventDefault()
-            let messageToEdit = event.target.id.split("--")[1]
-            
-            
+        if (document.getElementById("chat_id").value == "") {
+            if (event.keyCode == 13) {
+                let chat_object = chat.create_message(active_user)
+                chat.chat_api.save_message(chat_object).then(dom.render_chat)
+            }
+        } else if (document.getElementById("chat_id").value != "") {
+            if (event.keyCode == 13) {
+                let message_id = document.getElementById("chat_id").value
+                chat.edit_message(message_id).then(dom.render_chat)
+            }
         }
     }
 })
+site_wrapper.addEventListener("click", () => {
+    if (event.target.id.startsWith("edit--")){
+        let message_id = event.target.id.split("--")[1]
+        dom.prepopulate(message_id)
+    }
+    
+})
+
+export default active_user
