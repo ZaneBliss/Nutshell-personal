@@ -1,6 +1,6 @@
 const welcome_container = () => {
     return `
-    <div id=welcome_container>
+    <div id="welcome_container">
     <h1>Nutshell</h1>
     <div id="welcome_form"></div>
     <button id="enter">Register a new account</button>

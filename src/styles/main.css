@@ -2,3 +2,15 @@
     display: flex;
     flex-flow: column;
 }
+
+
+#chat_field {
+    display: flex;
+    flex-flow: column-reverse;
+    align-items: flex-start;
+    max-width: 300px;
+    max-height: 150px;
+    overflow-y: scroll;
+    overflow-wrap: normal;
+    border: 2px black solid;
+}

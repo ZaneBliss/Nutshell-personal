@@ -1,7 +1,4 @@
-import welcome_dom from "./welcome-dom.js"
 import welcome_component from "./welcome-components.js"
-
-welcome_dom.render_element(welcome_component.welcome_container(), "site_wrapper")
 
 let dom_vals = {
     username: "",
@@ -45,4 +42,4 @@ const matching_passwords = () => {
     else { return false}
 }
 
-export default { welcome_dom, welcome_component, create_user, empty_fields, matching_passwords, create_dom_vals }
+export default { welcome_component, create_user, empty_fields, matching_passwords, create_dom_vals }
